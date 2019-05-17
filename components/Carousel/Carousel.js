@@ -7,6 +7,27 @@ class Carousel {
         this.index = 0
         this.currentSlide = this.slide[this.index]
         this.currentSlide.style.display ='block'
+        this.prevSlide();
+        this.nextSlide();
+    }
+    prevSlide(){
+        this.leftButton.addEventListener('click',() =>{ 
+        this.currentSlide.style.display='';
+       // tweenSlide(this.currentSlide)
+        this.index === 0 ? this.index = this.slide.length - 1: this.index = this.index-1;
+        this.currentSlide=this.slide[this.index];
+        this.currentSlide.style.display = 'block'
+        })
+    }
+    nextSlide(){
+        this.rightButton.addEventListener('click',() =>{ 
+            this.currentSlide.style.display='';
+            //tweenSlide(this.currentSlide)
+            this.index < 3 ? this.index = this.index + 1 : this.index = 0;
+            this.currentSlide=this.slide[this.index];
+            this.currentSlide.style.display = 'block'
+            })
+
     }
 }
 
