@@ -32,20 +32,31 @@ Edit this document to include your answers after each question. Make sure to lea
 
 1. What is the DOM?
 
+The DOM is the Document Object Model created by the browser when a page is loaded which define html elements as objects with properties, events and methods.
+
 2. What is an event?
+
+An event is an action that is detectable by the program when a user or another source carries out an action.
 
 3. What is an event listener?
 
+An event listener is a function designed to carry out an action when a specific event occurs. It awaits the action and on getting the signal carries out the response action.
+
 4. Why would we convert a NodeList into an Array?
+
+Converting a Nodelist to an array makes it easier to carry out all array methods.
+
 
 5. What is a component?
 
+A component is a self-contained, independent and reusable part of an application.
+
 ### Git Set up
 
-* [ ] Fork the project into your GitHub user account
-* [ ] Clone the forked project into a directory on your machine
-* [ ] Create a pull request before you start working on the project requirements.  You will continuously push your updates throughout the project.
-* [ ] You are now ready to build this project with your preferred IDE
+* [x] Fork the project into your GitHub user account
+* [x] Clone the forked project into a directory on your machine
+* [x] Create a pull request before you start working on the project requirements.  You will continuously push your updates throughout the project.
+* [x] You are now ready to build this project with your preferred IDE
 
 ## Minimum Viable Product
 
