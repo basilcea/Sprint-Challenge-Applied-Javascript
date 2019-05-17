@@ -1,5 +1,13 @@
 class Carousel {
-
+    constructor(carousel){
+        this.carousel = carousel;
+        this.rightButton = document.querySelector('.right-button');
+        this.leftButton = document.querySelector('.left-button');
+        this.slide = this.carousel.querySelectorAll('img');
+        this.index = 0
+        this.currentSlide = this.slide[this.index]
+        this.currentSlide.style.display ='block'
+    }
 }
 
 let carousel = document.querySelector('.carousel');
