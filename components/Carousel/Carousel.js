@@ -3,29 +3,49 @@ class Carousel {
         this.carousel = carousel;
         this.rightButton = document.querySelector('.right-button');
         this.leftButton = document.querySelector('.left-button');
+        this.leftButton.style.zIndex='999';
+        this.rightButton.style.zIndex='999';
         this.slide = this.carousel.querySelectorAll('img');
         this.index = 0
         this.currentSlide = this.slide[this.index]
+        this.prevSlide;
         this.currentSlide.style.display ='block'
         this.prevSlide();
         this.nextSlide();
     }
     prevSlide(){
         this.leftButton.addEventListener('click',() =>{ 
-        this.currentSlide.style.display='';
-       // tweenSlide(this.currentSlide)
+        this.prevSlide =this.slide[this.index]
         this.index === 0 ? this.index = this.slide.length - 1: this.index = this.index-1;
         this.currentSlide=this.slide[this.index];
-        this.currentSlide.style.display = 'block'
+        TweenMax.set(this.currentSlide,{x:'-100'})
+        TweenMax.to(this.currentSlide, 1, {x:'0', opacity: 1,  onStart:() =>{
+            this.currentSlide.style.display='block';
+            this.prevSlide.style.display='none';
+            TweenMax.to( this.prevSlide, 1, {x:'-5000',opacity:0} )
+           console.log('finished', this.index, this.currentSlide, this.prevSlide)
+        }
+
+       
+    })
+    
         })
     }
     nextSlide(){
         this.rightButton.addEventListener('click',() =>{ 
-            this.currentSlide.style.display='';
-            //tweenSlide(this.currentSlide)
+            this.prevSlide = this.slide[this.index]
             this.index < 3 ? this.index = this.index + 1 : this.index = 0;
             this.currentSlide=this.slide[this.index];
-            this.currentSlide.style.display = 'block'
+            TweenMax.set(this.currentSlide,{x:'5000'})
+                TweenMax.to(this.currentSlide, 1, {x:'0', opacity: 1,  onStart:() =>{
+                    this.currentSlide.style.display='block';
+                    //this.prevSlide.style.display='none';
+                    TweenMax.to( this.prevSlide, 2, {display:'none' } )
+                    console.log('finished', this.index, this.prevSlide)
+                }
+
+               
+            })
             })
 
     }
